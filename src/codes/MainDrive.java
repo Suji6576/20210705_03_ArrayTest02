@@ -26,9 +26,16 @@ public class MainDrive {
 		
 		Scanner myScan = new Scanner(System.in);
 		
+//		정답입력을 몇 번 시도했는지 저장할 변수
+		int tryCount = 0;
+		
 		while (true) {
-			System.out.print("3자리 숫자 입력 :");
+			
+			System.out.print("3자리 숫자 입력 : ");
 			int inputNum = myScan.nextInt();
+			
+//			시도횟수 1회 증가.
+			tryCount++;
 			
 //			입력받은 숫자도 => 세 자리 배열에 나눠서 저장.
 //			1,2,3 => [1,2,3]
@@ -84,7 +91,7 @@ public class MainDrive {
 //			만약 3S라면? => 정답맞춘 케이스. => 추가입력받을 필요없음 => while반복을 깨고 나가면 프로그램 종료.
 			if (strikeCount == 3) {
 				System.out.println("축하합니다!");
-				
+				System.out.println(tryCount + "회 만에 맞췄습니다!");
 				break;
 			}
 		}
