@@ -9,16 +9,48 @@ public class MainDrive {
 //		숫자 야구 게임을 만듭니다.
 //		긴 풀이가 될 예정입니다. 단계별로 다시 복습해주세요.
 		
-//		임시 : 3자리 숫자를  => 3칸짜리 배열에 나눠서 저장. ex.741
-		
+// 		문제로 출제 된 숫자 3개를 저장할 배열
 		int[] questionNumbers = new int[3];
 		
-//		임시 : 직접 741 숫자를 저장.
-//		향후 : 컴퓨터가 랜덤숫자 3개 뽑아서 저장
+//		3칸의 배열에 숫자를 저장할 for문.
 		
-		questionNumbers[0] = 7;
-		questionNumbers[1] = 4;
-		questionNumbers[2] = 1;
+		for (int i=0 ; i < questionNumbers.length ; i++) {
+			
+//			1. 1~9의 숫자만 사용. => 1~9 중 하나를 랜덤으로 생성. (안배운 부분 활용)
+			
+//			2. 774 등 중복된 숫자는 막아야 함. => 뽑힌 랜덤 숫자가 문제 숫자 안에 들어있는지(사용해도 되는지) 검사.
+			
+//			3. 검사를 통과 했다면 배열에 집어넣자. 아니면 다시 뽑게. => 올바른 숫자가 나올때까지 해당 자리를 다시 뽑자.
+//			  => while 이용한 무한반복 사용.
+			
+			while (true) {
+				
+//				1 < 랜덤값 * 9+1 < 10    : 0 < 랜덤값 <10
+				
+				int randomNum = (int) (Math.random()*9+1);
+				
+//				중복검사 통과 여부 저장. => 일단 괜찮다고 했다가 > 중복값을 말하면, 안괜찮도록 변경.
+				boolean isDuplOk = true;
+				
+				for ( int num : questionNumbers ) {
+					if (randomNum == num) {
+//						중복된 숫자 발견! 더이상 중복검사 통과 X.
+						isDuplOk = false;
+					}
+				}
+				
+//				만약 중복검사 결과가 true로 유지되어있다면 => 사용해도 좋은 랜덤값.
+				if (isDuplOk) {
+//					해당 위치에 랜던값 대입.
+					questionNumbers[i] = randomNum;
+//					다음 숫자를 뽑으러 가야 함. => while반복을 깨야, 다음 for 차례로 이동.
+					break;
+				}
+				
+				
+			}
+			
+		}
 		
 		
 //		사용자에게 3자리 숫자를 무한히 입력받아보자.
