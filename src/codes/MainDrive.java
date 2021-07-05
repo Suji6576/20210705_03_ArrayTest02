@@ -42,6 +42,37 @@ public class MainDrive {
 //			2번 칸 : 123 => 3이 들어가야. 어떻게? 입력값을 10으로 나눈 나머지
 			inputNumbers[2] = inputNum % 10;
 			
+//			내 숫자 반복 : i
+//			문제 숫자 반복 : j => for 중첩
+			
+			for (int i=0 ; i < inputNumbers.length ; i++) {
+				
+				for (int j = 0 ; j < questionNumbers.length ; j++) {
+					
+//					먼저 검사 : 내 숫자 / 문제 숫자가 같은가? => 배열 안에 적힌 숫자끼리 같은가?
+//					같은 걸 찾았다면? 추가검사 : 둘의 위치도 같은가?
+//					if문 중첩 활용.
+					
+					
+					if (inputNumbers[i] == questionNumbers[j]) {
+						
+//						추가질문 : S / B => 둘의 위치가 같은가? 다른가? => i와 j가 같은가? 다른가?
+						if ( i==j ) {
+//							숫자도 같은데 위치가지 같다 => S 하나 발견
+						}
+						
+						else {
+//							숫자는 같지만, 위치만 다르다 => B 하나 발견.
+						}
+						
+					}
+					
+					
+					
+					
+				}
+			}
+			
 			
 		}
 		
